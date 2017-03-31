@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="lotteryscraping" />
+        <module name="web-scraping-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="lotteryscraping" target="1.5" />
+      <module name="web-scraping-core" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

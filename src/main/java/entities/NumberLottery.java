@@ -1,9 +1,11 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by XTR100 on 12/10/2016.
  */
-public class NumberLottery {
+public class NumberLottery implements Serializable {
 
     String date;
     String numberMorning;

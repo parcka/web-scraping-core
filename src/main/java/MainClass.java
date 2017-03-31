@@ -1,5 +1,6 @@
 import entities.NumberLottery;
 import org.jsoup.helper.StringUtil;
+import tools.FileUtils;
 import tools.NumberOperation;
 import tools.StringUtils;
 
@@ -16,22 +17,32 @@ public class MainClass {
     public static void main(String[] args) {
         System.out.println("Prueba de Programa");
 
-        Scraping scraping = new Scraping();
-        ArrayList<NumberLottery> listNumberLotery = scraping.getScraping();
+        //CARGO MI ARCHIVO CON MI LISTA DE NUMEROS
+        String path = "E:\\CARPETA_PRUEBAS\\prueba.txt";
+        FileUtils fileUtils = new FileUtils(path);
 
+       ArrayList<NumberLottery> numberLotteryArrayList = fileUtils.readNumberLotteryFromFile();
 
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
-        NumberOperation numberOperation = new NumberOperation();
-//        ArrayList permutas = numberOperation.getPermutedNumber(listNumberLotery.get(0).getNumberNight().split("-"));
-        ArrayList permutas = numberOperation.getPermutedNumber(input.split("-"));
+  /*      for (NumberLottery number :
+                numberLotteryArrayList) {
+            System.out.println("NUMERO: "+ number);
+        }*/
+
+
+
+
+       NumberOperation numberOperation = new NumberOperation();
+
+        ArrayList permutas = numberOperation.getPermutedNumber(input);
 
         for (String numberInPermutas :
                 (ArrayList<String>) permutas) {
 
             for (NumberLottery numberLotery :
-                    listNumberLotery) {
+                    numberLotteryArrayList) {
 
                 numberLotery.getNumberMorning().split("-");
 

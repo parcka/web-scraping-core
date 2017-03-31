@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainViewPanel">
+   <children>
+      <TabPane prefHeight="600.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Busqueda 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="searchButton" layoutX="245.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchActionClickTab1" text="Buscar" />
+                        <TextField fx:id="textFieldNumero" layoutX="14.0" layoutY="15.0" promptText="Buscar Numero" />
+                        <TableView fx:id="tableNumbers" layoutX="82.0" layoutY="105.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="364.0" prefWidth="405.0">
+                          <columns>
+                            <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Fecha" />
+                            <TableColumn fx:id="morningNumberColumn" prefWidth="75.0" text="Num Dia" />
+                              <TableColumn fx:id="nightNumberColumn" prefWidth="75.0" text="Num Noche" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Busqueda 2">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="searchButtonTab2" layoutX="245.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchActionClickTab2" text="Buscar" />
+                        <TextField fx:id="textFieldNumeroTab2" layoutX="14.0" layoutY="15.0" promptText="Buscar Numero" />
+                        <TableView fx:id="tableNumbersTab2" layoutX="82.0" layoutY="73.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="482.0" prefWidth="898.0">
+                           <columns>
+                              <TableColumn fx:id="dateColumnTab2" prefWidth="126.0" text="Fecha" />
+                              <TableColumn fx:id="morningNumberColumnTab2" prefWidth="130.0" text="Num Dia" />
+                              <TableColumn fx:id="nightNumberColumnTab2" prefWidth="77.0" text="Num Noche" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="315.0" layoutY="15.0" mnemonicParsing="false" text="Reporte General" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>

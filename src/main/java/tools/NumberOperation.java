@@ -7,13 +7,15 @@ import java.util.ArrayList;
  */
 public class NumberOperation {
 
-    private ArrayList permutedList = new ArrayList();
+    private ArrayList<String> permutedList = new ArrayList();
+    private String repeatedNumber = "";
 
-    public ArrayList getPermutedNumber(String[] inputNumber) {
+    public ArrayList<String> getPermutedNumber(String number) {
         permutedList = new ArrayList();
 
 
-        String[] elementos = "a,b,c,d,e".split(",");
+        String[] inputNumber = number.split("");
+        getRepeatedNumber(inputNumber);
         int n = 3;                  //Tipos para escoger
         int r = inputNumber.length;   //Elementos elegidos
         permute(inputNumber, "", n, r);
@@ -22,15 +24,30 @@ public class NumberOperation {
         return permutedList;
     }
 
+    private void getRepeatedNumber(String[] inputNumber) {
+        String temp = "";
+        for (String str :
+                inputNumber) {
+            if (str.equals(temp)) {
+                repeatedNumber = str;
+                temp = "";
+            }
+            temp = str;
+        }
+    }
+
     private void permute(String[] elem, String act, int n, int r) {
 
         if (n == 0) {
             System.out.println(act);
-            permutedList.add(act);
+            if (!permutedList.contains(act))
+                permutedList.add(act);
         } else {
             for (int i = 0; i < r; i++) {
                 elem[i] = elem[i].trim();
-               if (!act.contains(elem[i])) { // Controla que no haya repeticiones
+                if (!act.contains(elem[i])) { // Controla que no haya repeticiones
+                    permute(elem, act + elem[i], n - 1, r);
+                } else if (!repeatedNumber.equals("") & repeatedNumber.equals(elem[i])) {
                     permute(elem, act + elem[i], n - 1, r);
                 }
             }
